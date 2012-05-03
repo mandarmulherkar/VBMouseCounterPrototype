@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="VBStopWatch">
+</Property><Property Name="Solution File" Value="C:\brewapps\VBStopWatch\backup\Backup2\Backup\VBStopWatch.sln">
+</Property><Property Name="User Options File" Value="C:\brewapps\VBStopWatch\backup\Backup2\Backup\VBStopWatch.suo">
+</Property><Property Name="Date" Value="Tuesday, August 23, 2011">
+</Property><Property Name="Time" Value="17:43 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="VBStopWatch.sln" Description="File successfully backed up as C:\brewapps\VBStopWatch\backup\Backup2\Backup3\Backup\VBStopWatch.sln">
+</Event><Event ErrorLevel="0" Project="" Source="VBStopWatch.suo" Description="File successfully backed up as C:\brewapps\VBStopWatch\backup\Backup2\Backup3\Backup\VBStopWatch.suo">
+</Event><Event ErrorLevel="0" Project="VBStopWatch" Source="VBStopWatch.vbproj" Description="Project file successfully backed up as C:\brewapps\VBStopWatch\backup\Backup2\Backup3\Backup\VBStopWatch.vbproj">
+</Event><Event ErrorLevel="0" Project="VBStopWatch" Source="VBStopWatch.vbproj.user" Description="Project user file successfully backed up as C:\brewapps\VBStopWatch\backup\Backup2\Backup3\Backup\VBStopWatch.vbproj.user">
+</Event><Event ErrorLevel="0" Project="VBStopWatch" Source="Form1.vb" Description="File successfully backed up as C:\brewapps\VBStopWatch\backup\Backup2\Backup3\Backup\Form1.vb">
+</Event><Event ErrorLevel="0" Project="VBStopWatch" Source="Form1.Designer.vb" Description="File successfully backed up as C:\brewapps\VBStopWatch\backup\Backup2\Backup3\Backup\Form1.Designer.vb">
+</Event><Event ErrorLevel="0" Project="VBStopWatch" Source="My Project\AssemblyInfo.vb" Description="File successfully backed up as C:\brewapps\VBStopWatch\backup\Backup2\Backup3\Backup\My Project\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="VBStopWatch" Source="My Project\Application.Designer.vb" Description="File successfully backed up as C:\brewapps\VBStopWatch\backup\Backup2\Backup3\Backup\My Project\Application.Designer.vb">
+</Event><Event ErrorLevel="0" Project="VBStopWatch" Source="My Project\Resources.Designer.vb" Description="File successfully backed up as C:\brewapps\VBStopWatch\backup\Backup2\Backup3\Backup\My Project\Resources.Designer.vb">
+</Event><Event ErrorLevel="0" Project="VBStopWatch" Source="My Project\Settings.Designer.vb" Description="File successfully backed up as C:\brewapps\VBStopWatch\backup\Backup2\Backup3\Backup\My Project\Settings.Designer.vb">
+</Event><Event ErrorLevel="0" Project="VBStopWatch" Source="My Project\Application.myapp" Description="File successfully backed up as C:\brewapps\VBStopWatch\backup\Backup2\Backup3\Backup\My Project\Application.myapp">
+</Event><Event ErrorLevel="0" Project="VBStopWatch" Source="My Project\Settings.settings" Description="File successfully backed up as C:\brewapps\VBStopWatch\backup\Backup2\Backup3\Backup\My Project\Settings.settings">
+</Event><Event ErrorLevel="0" Project="VBStopWatch" Source="VBStopWatch_TemporaryKey.pfx" Description="File successfully backed up as C:\brewapps\VBStopWatch\backup\Backup2\Backup3\Backup\VBStopWatch_TemporaryKey.pfx">
+</Event><Event ErrorLevel="0" Project="VBStopWatch" Source="Rat.ico" Description="File successfully backed up as C:\brewapps\VBStopWatch\backup\Backup2\Backup3\Backup\Rat.ico">
+</Event><Event ErrorLevel="0" Project="VBStopWatch" Source="Form1.resx" Description="File successfully backed up as C:\brewapps\VBStopWatch\backup\Backup2\Backup3\Backup\Form1.resx">
+</Event><Event ErrorLevel="0" Project="VBStopWatch" Source="My Project\Resources.resx" Description="File successfully backed up as C:\brewapps\VBStopWatch\backup\Backup2\Backup3\Backup\My Project\Resources.resx">
+</Event><Event ErrorLevel="1" Project="VBStopWatch" Source="VBStopWatch.vbproj" Description="Your project is targeting .NET Framework 2.0 or 3.0. If your project uses assemblies requiring a newer .NET Framework, your project will fail to build. You can change the .NET Framework version by clicking Properties on the project menu and then selecting a new version in the '.NET Framework' dropdown box. (In Visual Basic, this is located on the Compile tab by clicking the 'Advanced Compiler Options...' button.)">
+</Event><Event ErrorLevel="0" Project="VBStopWatch" Source="VBStopWatch.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="VBStopWatch" Source="VBStopWatch.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="VBStopWatch.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="VBStopWatch.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="VBStopWatch" Source="VBStopWatch.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
