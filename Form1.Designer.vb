@@ -44,12 +44,12 @@ Partial Class Form1
         Me.LabelCounter = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.RadioButton5 = New System.Windows.Forms.RadioButton()
-        Me.ValueGoodOrBad = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.RadioButton4 = New System.Windows.Forms.RadioButton()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.ValueGoodOrBad = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.ValueLastCategorySelected = New System.Windows.Forms.Label()
         Me.ValueLastDuration = New System.Windows.Forms.Label()
         Me.LabelLastDuration = New System.Windows.Forms.Label()
@@ -57,7 +57,16 @@ Partial Class Form1
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.ValueOpenVideoLabel = New System.Windows.Forms.Label()
         Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
-        Me.MenuStrip1.SuspendLayout()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -87,7 +96,6 @@ Partial Class Form1
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem2, Me.VideoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(960, 24)
@@ -171,7 +179,7 @@ Partial Class Form1
         'ValueCounter
         '
         Me.ValueCounter.AutoSize = True
-        Me.ValueCounter.Location = New System.Drawing.Point(49, 78)
+        Me.ValueCounter.Location = New System.Drawing.Point(675, 500)
         Me.ValueCounter.Name = "ValueCounter"
         Me.ValueCounter.Size = New System.Drawing.Size(13, 13)
         Me.ValueCounter.TabIndex = 3
@@ -210,7 +218,7 @@ Partial Class Form1
         'LabelCounter
         '
         Me.LabelCounter.AutoSize = True
-        Me.LabelCounter.Location = New System.Drawing.Point(11, 78)
+        Me.LabelCounter.Location = New System.Drawing.Point(637, 500)
         Me.LabelCounter.Name = "LabelCounter"
         Me.LabelCounter.Size = New System.Drawing.Size(38, 13)
         Me.LabelCounter.TabIndex = 7
@@ -218,22 +226,24 @@ Partial Class Form1
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.ComboBox3)
+        Me.GroupBox2.Controls.Add(Me.Button7)
+        Me.GroupBox2.Controls.Add(Me.ComboBox2)
+        Me.GroupBox2.Controls.Add(Me.Button6)
+        Me.GroupBox2.Controls.Add(Me.ComboBox1)
+        Me.GroupBox2.Controls.Add(Me.Button5)
+        Me.GroupBox2.Controls.Add(Me.Button4)
+        Me.GroupBox2.Controls.Add(Me.Button3)
+        Me.GroupBox2.Controls.Add(Me.Button2)
+        Me.GroupBox2.Controls.Add(Me.Button1)
         Me.GroupBox2.Controls.Add(Me.RadioButton5)
-        Me.GroupBox2.Controls.Add(Me.ValueGoodOrBad)
-        Me.GroupBox2.Controls.Add(Me.LabelCounter)
-        Me.GroupBox2.Controls.Add(Me.ValueCounter)
-        Me.GroupBox2.Controls.Add(Me.CheckBox1)
         Me.GroupBox2.Controls.Add(Me.RadioButton4)
         Me.GroupBox2.Controls.Add(Me.RadioButton3)
         Me.GroupBox2.Controls.Add(Me.RadioButton2)
         Me.GroupBox2.Controls.Add(Me.RadioButton1)
-        Me.GroupBox2.Controls.Add(Me.ValueLastCategorySelected)
-        Me.GroupBox2.Controls.Add(Me.ValueLastDuration)
-        Me.GroupBox2.Controls.Add(Me.LabelLastDuration)
-        Me.GroupBox2.Controls.Add(Me.GroupBox4)
         Me.GroupBox2.Location = New System.Drawing.Point(626, 203)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(310, 103)
+        Me.GroupBox2.Size = New System.Drawing.Size(310, 269)
         Me.GroupBox2.TabIndex = 7
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Categorize"
@@ -248,25 +258,6 @@ Partial Class Form1
         Me.RadioButton5.TabStop = True
         Me.RadioButton5.Text = "None"
         Me.RadioButton5.UseVisualStyleBackColor = True
-        '
-        'ValueGoodOrBad
-        '
-        Me.ValueGoodOrBad.AutoSize = True
-        Me.ValueGoodOrBad.Location = New System.Drawing.Point(78, 56)
-        Me.ValueGoodOrBad.Name = "ValueGoodOrBad"
-        Me.ValueGoodOrBad.Size = New System.Drawing.Size(33, 13)
-        Me.ValueGoodOrBad.TabIndex = 17
-        Me.ValueGoodOrBad.Text = "Good"
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(224, 77)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(80, 17)
-        Me.CheckBox1.TabIndex = 16
-        Me.CheckBox1.Text = "Delete This"
-        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'RadioButton4
         '
@@ -312,10 +303,29 @@ Partial Class Form1
         Me.RadioButton1.Text = "Lick"
         Me.RadioButton1.UseVisualStyleBackColor = True
         '
+        'ValueGoodOrBad
+        '
+        Me.ValueGoodOrBad.AutoSize = True
+        Me.ValueGoodOrBad.Location = New System.Drawing.Point(704, 478)
+        Me.ValueGoodOrBad.Name = "ValueGoodOrBad"
+        Me.ValueGoodOrBad.Size = New System.Drawing.Size(33, 13)
+        Me.ValueGoodOrBad.TabIndex = 17
+        Me.ValueGoodOrBad.Text = "Good"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(850, 499)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(80, 17)
+        Me.CheckBox1.TabIndex = 16
+        Me.CheckBox1.Text = "Delete This"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'ValueLastCategorySelected
         '
         Me.ValueLastCategorySelected.AutoSize = True
-        Me.ValueLastCategorySelected.Location = New System.Drawing.Point(164, 78)
+        Me.ValueLastCategorySelected.Location = New System.Drawing.Point(790, 500)
         Me.ValueLastCategorySelected.Name = "ValueLastCategorySelected"
         Me.ValueLastCategorySelected.Size = New System.Drawing.Size(13, 13)
         Me.ValueLastCategorySelected.TabIndex = 11
@@ -324,7 +334,7 @@ Partial Class Form1
         'ValueLastDuration
         '
         Me.ValueLastDuration.AutoSize = True
-        Me.ValueLastDuration.Location = New System.Drawing.Point(88, 78)
+        Me.ValueLastDuration.Location = New System.Drawing.Point(714, 500)
         Me.ValueLastDuration.Name = "ValueLastDuration"
         Me.ValueLastDuration.Size = New System.Drawing.Size(43, 13)
         Me.ValueLastDuration.TabIndex = 7
@@ -333,7 +343,7 @@ Partial Class Form1
         'LabelLastDuration
         '
         Me.LabelLastDuration.AutoSize = True
-        Me.LabelLastDuration.Location = New System.Drawing.Point(13, 56)
+        Me.LabelLastDuration.Location = New System.Drawing.Point(639, 478)
         Me.LabelLastDuration.Name = "LabelLastDuration"
         Me.LabelLastDuration.Size = New System.Drawing.Size(60, 13)
         Me.LabelLastDuration.TabIndex = 6
@@ -341,7 +351,7 @@ Partial Class Form1
         '
         'GroupBox4
         '
-        Me.GroupBox4.Location = New System.Drawing.Point(0, 56)
+        Me.GroupBox4.Location = New System.Drawing.Point(626, 478)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(310, 47)
         Me.GroupBox4.TabIndex = 18
@@ -377,23 +387,140 @@ Partial Class Form1
         Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(595, 500)
         Me.AxWindowsMediaPlayer1.TabIndex = 14
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"})
+        Me.ComboBox1.Location = New System.Drawing.Point(264, 62)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(39, 21)
+        Me.ComboBox1.TabIndex = 25
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"})
+        Me.ComboBox2.Location = New System.Drawing.Point(264, 112)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(39, 21)
+        Me.ComboBox2.TabIndex = 27
+        '
+        'ComboBox3
+        '
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"})
+        Me.ComboBox3.Location = New System.Drawing.Point(264, 162)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(39, 21)
+        Me.ComboBox3.TabIndex = 29
+        '
+        'Button7
+        '
+        Me.Button7.BackgroundImage = Global.MouseCounter.My.Resources.Resources.scratch
+        Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.Location = New System.Drawing.Point(146, 149)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(112, 44)
+        Me.Button7.TabIndex = 28
+        Me.Button7.Text = "Scratch"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.BackgroundImage = Global.MouseCounter.My.Resources.Resources.wipe
+        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Location = New System.Drawing.Point(146, 99)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(112, 44)
+        Me.Button6.TabIndex = 26
+        Me.Button6.Text = "Wipe"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.BackgroundImage = Global.MouseCounter.My.Resources.Resources.flinch
+        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.Location = New System.Drawing.Point(146, 49)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(112, 44)
+        Me.Button5.TabIndex = 24
+        Me.Button5.Text = "Flinch"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.BackgroundImage = Global.MouseCounter.My.Resources.Resources.guard
+        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Location = New System.Drawing.Point(19, 199)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(112, 44)
+        Me.Button4.TabIndex = 23
+        Me.Button4.Text = "Guard"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.BackgroundImage = Global.MouseCounter.My.Resources.Resources.lift
+        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(19, 149)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(112, 44)
+        Me.Button3.TabIndex = 22
+        Me.Button3.Text = "Lift"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.BackgroundImage = Global.MouseCounter.My.Resources.Resources.rose
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(19, 99)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(112, 44)
+        Me.Button2.TabIndex = 21
+        Me.Button2.Text = "Sniff"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.BackgroundImage = Global.MouseCounter.My.Resources.Resources.icecream
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(19, 49)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(112, 44)
+        Me.Button1.TabIndex = 20
+        Me.Button1.Text = "Lick"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(960, 535)
         Me.Controls.Add(Me.ValueOpenVideoLabel)
+        Me.Controls.Add(Me.ValueGoodOrBad)
         Me.Controls.Add(Me.AxWindowsMediaPlayer1)
+        Me.Controls.Add(Me.LabelCounter)
         Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.ValueCounter)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.LabelLastDuration)
+        Me.Controls.Add(Me.GroupBox4)
+        Me.Controls.Add(Me.ValueLastDuration)
+        Me.Controls.Add(Me.ValueLastCategorySelected)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form1"
         Me.Text = "Mouse Counter"
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -441,5 +568,15 @@ Partial Class Form1
     Friend WithEvents OpenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ValueOpenVideoLabel As System.Windows.Forms.Label
     Friend WithEvents AxWindowsMediaPlayer1 As AxWMPLib.AxWindowsMediaPlayer
+    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
+    Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
+    Friend WithEvents Button7 As System.Windows.Forms.Button
 
 End Class

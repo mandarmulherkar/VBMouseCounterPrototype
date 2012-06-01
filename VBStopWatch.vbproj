@@ -150,6 +150,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="icons\rose.png" />
+    <None Include="icons\icecream.png" />
+    <None Include="icons\lift.png" />
+    <None Include="icons\guard.png" />
+    <None Include="icons\flinch.png" />
+    <None Include="icons\wipe.png" />
+    <None Include="icons\scratch.png" />
     <Content Include="Rat.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +201,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
