@@ -23,8 +23,14 @@ Partial Class Form1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.StartButton = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.StopWatch = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.FileToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DiscardValuesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveAsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveAsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DiscardValuesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -39,25 +45,27 @@ Partial Class Form1
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ValueCounter = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.VideoStart = New System.Windows.Forms.Label()
+        Me.VideoStop = New System.Windows.Forms.Label()
         Me.ValueLastSavedFile = New System.Windows.Forms.Label()
         Me.LabelLastSavedFile = New System.Windows.Forms.Label()
         Me.LabelCounter = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.RadioButton5 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.MouseAction = New System.Windows.Forms.Label()
+        Me.NumberOfTimes = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.Scratch = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Wipes = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Flinches = New System.Windows.Forms.ComboBox()
+        Me.Guard = New System.Windows.Forms.Button()
+        Me.Lift = New System.Windows.Forms.Button()
+        Me.Sniff = New System.Windows.Forms.Button()
+        Me.Lick = New System.Windows.Forms.Button()
         Me.ValueGoodOrBad = New System.Windows.Forms.Label()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.ValueLastCategorySelected = New System.Windows.Forms.Label()
@@ -67,18 +75,17 @@ Partial Class Form1
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.ValueOpenVideoLabel = New System.Windows.Forms.Label()
         Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
-        Me.FileToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OpenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DiscardValuesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExitToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveAsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'StartButton
@@ -93,14 +100,14 @@ Partial Class Form1
         'Timer1
         '
         '
-        'Label1
+        'StopWatch
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(134, 16)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(43, 13)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "0:0.000"
+        Me.StopWatch.AutoSize = True
+        Me.StopWatch.Location = New System.Drawing.Point(134, 16)
+        Me.StopWatch.Name = "StopWatch"
+        Me.StopWatch.Size = New System.Drawing.Size(43, 13)
+        Me.StopWatch.TabIndex = 1
+        Me.StopWatch.Text = "0:0.000"
         '
         'MenuStrip1
         '
@@ -110,6 +117,43 @@ Partial Class Form1
         Me.MenuStrip1.Size = New System.Drawing.Size(960, 24)
         Me.MenuStrip1.TabIndex = 2
         Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'FileToolStripMenuItem1
+        '
+        Me.FileToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem1, Me.DiscardValuesToolStripMenuItem1, Me.ExitToolStripMenuItem, Me.SaveAsToolStripMenuItem1, Me.ExitToolStripMenuItem2})
+        Me.FileToolStripMenuItem1.Name = "FileToolStripMenuItem1"
+        Me.FileToolStripMenuItem1.Size = New System.Drawing.Size(37, 20)
+        Me.FileToolStripMenuItem1.Text = "File"
+        '
+        'OpenToolStripMenuItem1
+        '
+        Me.OpenToolStripMenuItem1.Name = "OpenToolStripMenuItem1"
+        Me.OpenToolStripMenuItem1.Size = New System.Drawing.Size(150, 22)
+        Me.OpenToolStripMenuItem1.Text = "Open"
+        '
+        'DiscardValuesToolStripMenuItem1
+        '
+        Me.DiscardValuesToolStripMenuItem1.Name = "DiscardValuesToolStripMenuItem1"
+        Me.DiscardValuesToolStripMenuItem1.Size = New System.Drawing.Size(150, 22)
+        Me.DiscardValuesToolStripMenuItem1.Text = "Discard Values"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.ExitToolStripMenuItem.Text = "Save Values"
+        '
+        'SaveAsToolStripMenuItem1
+        '
+        Me.SaveAsToolStripMenuItem1.Name = "SaveAsToolStripMenuItem1"
+        Me.SaveAsToolStripMenuItem1.Size = New System.Drawing.Size(150, 22)
+        Me.SaveAsToolStripMenuItem1.Text = "Save As"
+        '
+        'ExitToolStripMenuItem2
+        '
+        Me.ExitToolStripMenuItem2.Name = "ExitToolStripMenuItem2"
+        Me.ExitToolStripMenuItem2.Size = New System.Drawing.Size(150, 22)
+        Me.ExitToolStripMenuItem2.Text = "Exit"
         '
         'FileToolStripMenuItem
         '
@@ -188,7 +232,7 @@ Partial Class Form1
         'ValueCounter
         '
         Me.ValueCounter.AutoSize = True
-        Me.ValueCounter.Location = New System.Drawing.Point(675, 500)
+        Me.ValueCounter.Location = New System.Drawing.Point(676, 482)
         Me.ValueCounter.Name = "ValueCounter"
         Me.ValueCounter.Size = New System.Drawing.Size(13, 13)
         Me.ValueCounter.TabIndex = 3
@@ -196,14 +240,34 @@ Partial Class Form1
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.VideoStart)
+        Me.GroupBox1.Controls.Add(Me.VideoStop)
         Me.GroupBox1.Controls.Add(Me.ValueLastSavedFile)
         Me.GroupBox1.Controls.Add(Me.LabelLastSavedFile)
         Me.GroupBox1.Location = New System.Drawing.Point(628, 28)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(310, 89)
+        Me.GroupBox1.Size = New System.Drawing.Size(320, 75)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Info"
+        '
+        'VideoStart
+        '
+        Me.VideoStart.AutoSize = True
+        Me.VideoStart.Location = New System.Drawing.Point(240, 25)
+        Me.VideoStart.Name = "VideoStart"
+        Me.VideoStart.Size = New System.Drawing.Size(56, 13)
+        Me.VideoStart.TabIndex = 10
+        Me.VideoStart.Text = "VideoStart"
+        '
+        'VideoStop
+        '
+        Me.VideoStop.AutoSize = True
+        Me.VideoStop.Location = New System.Drawing.Point(237, 47)
+        Me.VideoStop.Name = "VideoStop"
+        Me.VideoStop.Size = New System.Drawing.Size(56, 13)
+        Me.VideoStop.TabIndex = 9
+        Me.VideoStop.Text = "VideoStop"
         '
         'ValueLastSavedFile
         '
@@ -227,7 +291,7 @@ Partial Class Form1
         'LabelCounter
         '
         Me.LabelCounter.AutoSize = True
-        Me.LabelCounter.Location = New System.Drawing.Point(637, 500)
+        Me.LabelCounter.Location = New System.Drawing.Point(638, 482)
         Me.LabelCounter.Name = "LabelCounter"
         Me.LabelCounter.Size = New System.Drawing.Size(38, 13)
         Me.LabelCounter.TabIndex = 7
@@ -235,198 +299,183 @@ Partial Class Form1
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.ComboBox3)
-        Me.GroupBox2.Controls.Add(Me.Button7)
-        Me.GroupBox2.Controls.Add(Me.ComboBox2)
-        Me.GroupBox2.Controls.Add(Me.Button6)
-        Me.GroupBox2.Controls.Add(Me.ComboBox1)
-        Me.GroupBox2.Controls.Add(Me.Button5)
-        Me.GroupBox2.Controls.Add(Me.Button4)
-        Me.GroupBox2.Controls.Add(Me.Button3)
-        Me.GroupBox2.Controls.Add(Me.Button2)
-        Me.GroupBox2.Controls.Add(Me.Button1)
-        Me.GroupBox2.Controls.Add(Me.RadioButton5)
-        Me.GroupBox2.Controls.Add(Me.RadioButton4)
-        Me.GroupBox2.Controls.Add(Me.RadioButton3)
-        Me.GroupBox2.Controls.Add(Me.RadioButton2)
-        Me.GroupBox2.Controls.Add(Me.RadioButton1)
-        Me.GroupBox2.Location = New System.Drawing.Point(626, 203)
+        Me.GroupBox2.Controls.Add(Me.MouseAction)
+        Me.GroupBox2.Controls.Add(Me.NumberOfTimes)
+        Me.GroupBox2.Controls.Add(Me.Label4)
+        Me.GroupBox2.Controls.Add(Me.PictureBox3)
+        Me.GroupBox2.Controls.Add(Me.Scratch)
+        Me.GroupBox2.Controls.Add(Me.Label3)
+        Me.GroupBox2.Controls.Add(Me.PictureBox2)
+        Me.GroupBox2.Controls.Add(Me.Wipes)
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.PictureBox1)
+        Me.GroupBox2.Controls.Add(Me.Flinches)
+        Me.GroupBox2.Controls.Add(Me.Guard)
+        Me.GroupBox2.Controls.Add(Me.Lift)
+        Me.GroupBox2.Controls.Add(Me.Sniff)
+        Me.GroupBox2.Controls.Add(Me.Lick)
+        Me.GroupBox2.Location = New System.Drawing.Point(626, 179)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(310, 269)
+        Me.GroupBox2.Size = New System.Drawing.Size(322, 268)
         Me.GroupBox2.TabIndex = 7
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Categorize"
         '
-        'ComboBox3
+        'MouseAction
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"})
-        Me.ComboBox3.Location = New System.Drawing.Point(264, 162)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(39, 21)
-        Me.ComboBox3.TabIndex = 29
+        Me.MouseAction.AutoSize = True
+        Me.MouseAction.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MouseAction.Location = New System.Drawing.Point(123, 25)
+        Me.MouseAction.Name = "MouseAction"
+        Me.MouseAction.Size = New System.Drawing.Size(45, 16)
+        Me.MouseAction.TabIndex = 39
+        Me.MouseAction.Text = "None"
         '
-        'Button7
+        'NumberOfTimes
         '
-        Me.Button7.BackgroundImage = Global.MouseCounter.My.Resources.Resources.scratch
-        Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(146, 149)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(112, 44)
-        Me.Button7.TabIndex = 28
-        Me.Button7.Text = "Scratch"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.NumberOfTimes.AutoSize = True
+        Me.NumberOfTimes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NumberOfTimes.Location = New System.Drawing.Point(101, 24)
+        Me.NumberOfTimes.Name = "NumberOfTimes"
+        Me.NumberOfTimes.Size = New System.Drawing.Size(0, 16)
+        Me.NumberOfTimes.TabIndex = 38
         '
-        'ComboBox2
+        'Label4
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"})
-        Me.ComboBox2.Location = New System.Drawing.Point(264, 112)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(39, 21)
-        Me.ComboBox2.TabIndex = 27
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(239, 182)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(80, 15)
+        Me.Label4.TabIndex = 37
+        Me.Label4.Text = "Scratch(es)"
         '
-        'Button6
+        'PictureBox3
         '
-        Me.Button6.BackgroundImage = Global.MouseCounter.My.Resources.Resources.wipe
-        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(146, 99)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(112, 44)
-        Me.Button6.TabIndex = 26
-        Me.Button6.Text = "Wipe"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.PictureBox3.Image = Global.MouseCounter.My.Resources.Resources.scratch
+        Me.PictureBox3.Location = New System.Drawing.Point(163, 171)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(36, 30)
+        Me.PictureBox3.TabIndex = 36
+        Me.PictureBox3.TabStop = False
         '
-        'ComboBox1
+        'Scratch
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"})
-        Me.ComboBox1.Location = New System.Drawing.Point(264, 62)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(39, 21)
-        Me.ComboBox1.TabIndex = 25
+        Me.Scratch.FormattingEnabled = True
+        Me.Scratch.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"})
+        Me.Scratch.Location = New System.Drawing.Point(205, 180)
+        Me.Scratch.Name = "Scratch"
+        Me.Scratch.Size = New System.Drawing.Size(30, 21)
+        Me.Scratch.TabIndex = 35
         '
-        'Button5
+        'Label3
         '
-        Me.Button5.BackgroundImage = Global.MouseCounter.My.Resources.Resources.flinch
-        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(146, 49)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(112, 44)
-        Me.Button5.TabIndex = 24
-        Me.Button5.Text = "Flinch"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(239, 132)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(56, 15)
+        Me.Label3.TabIndex = 34
+        Me.Label3.Text = "Wipe(s)"
         '
-        'Button4
+        'PictureBox2
         '
-        Me.Button4.BackgroundImage = Global.MouseCounter.My.Resources.Resources.guard
-        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(19, 199)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(112, 44)
-        Me.Button4.TabIndex = 23
-        Me.Button4.Text = "Guard"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.PictureBox2.Image = Global.MouseCounter.My.Resources.Resources.wipe
+        Me.PictureBox2.Location = New System.Drawing.Point(163, 121)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(36, 30)
+        Me.PictureBox2.TabIndex = 33
+        Me.PictureBox2.TabStop = False
         '
-        'Button3
+        'Wipes
         '
-        Me.Button3.BackgroundImage = Global.MouseCounter.My.Resources.Resources.lift
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(19, 149)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(112, 44)
-        Me.Button3.TabIndex = 22
-        Me.Button3.Text = "Lift"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Wipes.FormattingEnabled = True
+        Me.Wipes.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"})
+        Me.Wipes.Location = New System.Drawing.Point(205, 130)
+        Me.Wipes.Name = "Wipes"
+        Me.Wipes.Size = New System.Drawing.Size(30, 21)
+        Me.Wipes.TabIndex = 32
         '
-        'Button2
+        'Label2
         '
-        Me.Button2.BackgroundImage = Global.MouseCounter.My.Resources.Resources.rose
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(19, 99)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(112, 44)
-        Me.Button2.TabIndex = 21
-        Me.Button2.Text = "Sniff"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(239, 82)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(71, 15)
+        Me.Label2.TabIndex = 31
+        Me.Label2.Text = "Flinche(s)"
         '
-        'Button1
+        'PictureBox1
         '
-        Me.Button1.BackgroundImage = Global.MouseCounter.My.Resources.Resources.icecream
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(19, 49)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(112, 44)
-        Me.Button1.TabIndex = 20
-        Me.Button1.Text = "Lick"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.PictureBox1.Image = Global.MouseCounter.My.Resources.Resources.flinch
+        Me.PictureBox1.Location = New System.Drawing.Point(163, 71)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(36, 30)
+        Me.PictureBox1.TabIndex = 30
+        Me.PictureBox1.TabStop = False
         '
-        'RadioButton5
+        'Flinches
         '
-        Me.RadioButton5.AutoSize = True
-        Me.RadioButton5.Location = New System.Drawing.Point(14, 19)
-        Me.RadioButton5.Name = "RadioButton5"
-        Me.RadioButton5.Size = New System.Drawing.Size(51, 17)
-        Me.RadioButton5.TabIndex = 19
-        Me.RadioButton5.TabStop = True
-        Me.RadioButton5.Text = "None"
-        Me.RadioButton5.UseVisualStyleBackColor = True
+        Me.Flinches.FormattingEnabled = True
+        Me.Flinches.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"})
+        Me.Flinches.Location = New System.Drawing.Point(205, 80)
+        Me.Flinches.Name = "Flinches"
+        Me.Flinches.Size = New System.Drawing.Size(30, 21)
+        Me.Flinches.TabIndex = 25
         '
-        'RadioButton4
+        'Guard
         '
-        Me.RadioButton4.AutoSize = True
-        Me.RadioButton4.Location = New System.Drawing.Point(249, 19)
-        Me.RadioButton4.Name = "RadioButton4"
-        Me.RadioButton4.Size = New System.Drawing.Size(54, 17)
-        Me.RadioButton4.TabIndex = 15
-        Me.RadioButton4.TabStop = True
-        Me.RadioButton4.Text = "Guard"
-        Me.RadioButton4.UseVisualStyleBackColor = True
+        Me.Guard.BackgroundImage = Global.MouseCounter.My.Resources.Resources.guard
+        Me.Guard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Guard.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guard.Location = New System.Drawing.Point(26, 207)
+        Me.Guard.Name = "Guard"
+        Me.Guard.Size = New System.Drawing.Size(112, 44)
+        Me.Guard.TabIndex = 23
+        Me.Guard.Text = "Guard"
+        Me.Guard.UseVisualStyleBackColor = True
         '
-        'RadioButton3
+        'Lift
         '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(198, 19)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(39, 17)
-        Me.RadioButton3.TabIndex = 14
-        Me.RadioButton3.TabStop = True
-        Me.RadioButton3.Text = "Lift"
-        Me.RadioButton3.UseVisualStyleBackColor = True
+        Me.Lift.BackgroundImage = Global.MouseCounter.My.Resources.Resources.lift
+        Me.Lift.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Lift.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lift.Location = New System.Drawing.Point(26, 157)
+        Me.Lift.Name = "Lift"
+        Me.Lift.Size = New System.Drawing.Size(112, 44)
+        Me.Lift.TabIndex = 22
+        Me.Lift.Text = "Lift"
+        Me.Lift.UseVisualStyleBackColor = True
         '
-        'RadioButton2
+        'Sniff
         '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(139, 19)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(46, 17)
-        Me.RadioButton2.TabIndex = 13
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Sniff"
-        Me.RadioButton2.UseVisualStyleBackColor = True
+        Me.Sniff.BackgroundImage = Global.MouseCounter.My.Resources.Resources.rose
+        Me.Sniff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Sniff.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Sniff.Location = New System.Drawing.Point(26, 107)
+        Me.Sniff.Name = "Sniff"
+        Me.Sniff.Size = New System.Drawing.Size(112, 44)
+        Me.Sniff.TabIndex = 21
+        Me.Sniff.Text = "Sniff"
+        Me.Sniff.UseVisualStyleBackColor = True
         '
-        'RadioButton1
+        'Lick
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(79, 19)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(45, 17)
-        Me.RadioButton1.TabIndex = 12
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Lick"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.Lick.BackgroundImage = Global.MouseCounter.My.Resources.Resources.icecream
+        Me.Lick.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Lick.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lick.Location = New System.Drawing.Point(26, 57)
+        Me.Lick.Name = "Lick"
+        Me.Lick.Size = New System.Drawing.Size(112, 44)
+        Me.Lick.TabIndex = 20
+        Me.Lick.Text = "Lick"
+        Me.Lick.UseVisualStyleBackColor = True
         '
         'ValueGoodOrBad
         '
         Me.ValueGoodOrBad.AutoSize = True
-        Me.ValueGoodOrBad.Location = New System.Drawing.Point(704, 478)
+        Me.ValueGoodOrBad.Location = New System.Drawing.Point(705, 460)
         Me.ValueGoodOrBad.Name = "ValueGoodOrBad"
         Me.ValueGoodOrBad.Size = New System.Drawing.Size(33, 13)
         Me.ValueGoodOrBad.TabIndex = 17
@@ -445,7 +494,7 @@ Partial Class Form1
         'ValueLastCategorySelected
         '
         Me.ValueLastCategorySelected.AutoSize = True
-        Me.ValueLastCategorySelected.Location = New System.Drawing.Point(790, 500)
+        Me.ValueLastCategorySelected.Location = New System.Drawing.Point(791, 482)
         Me.ValueLastCategorySelected.Name = "ValueLastCategorySelected"
         Me.ValueLastCategorySelected.Size = New System.Drawing.Size(13, 13)
         Me.ValueLastCategorySelected.TabIndex = 11
@@ -454,7 +503,7 @@ Partial Class Form1
         'ValueLastDuration
         '
         Me.ValueLastDuration.AutoSize = True
-        Me.ValueLastDuration.Location = New System.Drawing.Point(714, 500)
+        Me.ValueLastDuration.Location = New System.Drawing.Point(715, 482)
         Me.ValueLastDuration.Name = "ValueLastDuration"
         Me.ValueLastDuration.Size = New System.Drawing.Size(43, 13)
         Me.ValueLastDuration.TabIndex = 7
@@ -463,7 +512,7 @@ Partial Class Form1
         'LabelLastDuration
         '
         Me.LabelLastDuration.AutoSize = True
-        Me.LabelLastDuration.Location = New System.Drawing.Point(639, 478)
+        Me.LabelLastDuration.Location = New System.Drawing.Point(640, 460)
         Me.LabelLastDuration.Name = "LabelLastDuration"
         Me.LabelLastDuration.Size = New System.Drawing.Size(60, 13)
         Me.LabelLastDuration.TabIndex = 6
@@ -472,19 +521,19 @@ Partial Class Form1
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.CheckBox1)
-        Me.GroupBox4.Location = New System.Drawing.Point(626, 478)
+        Me.GroupBox4.Location = New System.Drawing.Point(627, 460)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(310, 47)
+        Me.GroupBox4.Size = New System.Drawing.Size(321, 47)
         Me.GroupBox4.TabIndex = 18
         Me.GroupBox4.TabStop = False
         '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.StartButton)
-        Me.GroupBox3.Controls.Add(Me.Label1)
-        Me.GroupBox3.Location = New System.Drawing.Point(626, 128)
+        Me.GroupBox3.Controls.Add(Me.StopWatch)
+        Me.GroupBox3.Location = New System.Drawing.Point(626, 109)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(310, 64)
+        Me.GroupBox3.Size = New System.Drawing.Size(322, 64)
         Me.GroupBox3.TabIndex = 10
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "StopWatch"
@@ -508,48 +557,20 @@ Partial Class Form1
         Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(595, 500)
         Me.AxWindowsMediaPlayer1.TabIndex = 14
         '
-        'FileToolStripMenuItem1
+        'PictureBox4
         '
-        Me.FileToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem1, Me.DiscardValuesToolStripMenuItem1, Me.ExitToolStripMenuItem, Me.SaveAsToolStripMenuItem1, Me.ExitToolStripMenuItem2})
-        Me.FileToolStripMenuItem1.Name = "FileToolStripMenuItem1"
-        Me.FileToolStripMenuItem1.Size = New System.Drawing.Size(37, 20)
-        Me.FileToolStripMenuItem1.Text = "File"
-        '
-        'OpenToolStripMenuItem1
-        '
-        Me.OpenToolStripMenuItem1.Name = "OpenToolStripMenuItem1"
-        Me.OpenToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.OpenToolStripMenuItem1.Text = "Open"
-        '
-        'DiscardValuesToolStripMenuItem1
-        '
-        Me.DiscardValuesToolStripMenuItem1.Name = "DiscardValuesToolStripMenuItem1"
-        Me.DiscardValuesToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.DiscardValuesToolStripMenuItem1.Text = "Discard Values"
-        '
-        'ExitToolStripMenuItem
-        '
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ExitToolStripMenuItem.Text = "Save Values"
-        '
-        'ExitToolStripMenuItem2
-        '
-        Me.ExitToolStripMenuItem2.Name = "ExitToolStripMenuItem2"
-        Me.ExitToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
-        Me.ExitToolStripMenuItem2.Text = "Exit"
-        '
-        'SaveAsToolStripMenuItem1
-        '
-        Me.SaveAsToolStripMenuItem1.Name = "SaveAsToolStripMenuItem1"
-        Me.SaveAsToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.SaveAsToolStripMenuItem1.Text = "Save As"
+        Me.PictureBox4.Location = New System.Drawing.Point(0, 482)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(607, 50)
+        Me.PictureBox4.TabIndex = 19
+        Me.PictureBox4.TabStop = False
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(960, 535)
+        Me.Controls.Add(Me.PictureBox4)
         Me.Controls.Add(Me.ValueOpenVideoLabel)
         Me.Controls.Add(Me.ValueGoodOrBad)
         Me.Controls.Add(Me.AxWindowsMediaPlayer1)
@@ -573,18 +594,22 @@ Partial Class Form1
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents StartButton As System.Windows.Forms.Button
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents StopWatch As System.Windows.Forms.Label
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents FileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SaveAsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -600,14 +625,9 @@ Partial Class Form1
     Friend WithEvents LabelLastDuration As System.Windows.Forms.Label
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents ValueLastCategorySelected As System.Windows.Forms.Label
-    Friend WithEvents RadioButton4 As System.Windows.Forms.RadioButton
-    Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
-    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
-    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents ValueGoodOrBad As System.Windows.Forms.Label
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-    Friend WithEvents RadioButton5 As System.Windows.Forms.RadioButton
     Friend WithEvents HelpToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ContentsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents IndexToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -618,21 +638,29 @@ Partial Class Form1
     Friend WithEvents OpenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ValueOpenVideoLabel As System.Windows.Forms.Label
     Friend WithEvents AxWindowsMediaPlayer1 As AxWMPLib.AxWindowsMediaPlayer
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button5 As System.Windows.Forms.Button
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents Button6 As System.Windows.Forms.Button
-    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
-    Friend WithEvents Button7 As System.Windows.Forms.Button
+    Friend WithEvents Guard As System.Windows.Forms.Button
+    Friend WithEvents Lift As System.Windows.Forms.Button
+    Friend WithEvents Sniff As System.Windows.Forms.Button
+    Friend WithEvents Lick As System.Windows.Forms.Button
+    Friend WithEvents Flinches As System.Windows.Forms.ComboBox
     Friend WithEvents FileToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OpenToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DiscardValuesToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SaveAsToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents Wipes As System.Windows.Forms.ComboBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
+    Friend WithEvents Scratch As System.Windows.Forms.ComboBox
+    Friend WithEvents MouseAction As System.Windows.Forms.Label
+    Friend WithEvents NumberOfTimes As System.Windows.Forms.Label
+    Friend WithEvents VideoStop As System.Windows.Forms.Label
+    Friend WithEvents VideoStart As System.Windows.Forms.Label
+    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
 
 End Class

@@ -6,9 +6,12 @@ Public Class Form1
 
     Dim categoryTrack(0 To 255) As Int16
     Dim sCategoryTrack(0 To 255) As String
+
+    Dim sCategoryVideoTimeStop(0 To 255) As String
+    Dim sCategoryVideoTimeStart(0 To 255) As String
     Dim sCurrentPlayingVideo As String '(0 To 255) As String
 
-    Dim i As Integer
+    Dim counter As Integer
     Dim iteration As Integer
     Dim CheckBoxCheckedFlag As Boolean
     Dim ValuesSavedToFileFlag As Boolean
@@ -53,7 +56,7 @@ Public Class Form1
             iteration += 1
 
             ' Add a more decent file open and close logic    
-            While (j < i)
+            While (j < counter)
                 writeToFile = timeTrack(j).Seconds.ToString & "." & timeTrack(j).Milliseconds.ToString & "," & sCategoryTrack(j) & vbCrLf
                 ValueLastDuration.Text = writeToFile
                 My.Computer.FileSystem.WriteAllText(saveFileDialog1.FileName(), writeToFile, True)
@@ -71,19 +74,19 @@ Public Class Form1
         End If
 
         ' Resetting the counter back to zero, sorry for the variable name.    
-        i = 0
+        counter = 0
 
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         span = DateTime.Now.Subtract(startTime)
-        Label1.Text = span.Minutes.ToString & ":" & span.Seconds.ToString & "." & span.Milliseconds
+        StopWatch.Text = span.Minutes.ToString & ":" & span.Seconds.ToString & "." & span.Milliseconds
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StartButton.Click
 
+        MouseAction.Text = "None"
         ValueOpenVideoLabel.Text = ""
-        RadioButton5.Checked = True
 
         If (bVideoOpened = False) Then
             ValueOpenVideoLabel.Text = "Please Open a Video First"
@@ -126,13 +129,20 @@ Public Class Form1
             bVideoPlayingFlag = False
 
             Timer1.Stop()
-            timeTrack(i) = span
+            timeTrack(counter) = span
             ValueLastCategorySelected.Text = "None"
             ValueGoodOrBad.Text = "Good"
-            ValueLastDuration.Text = timeTrack(i).Minutes.ToString & ":" & timeTrack(i).Seconds.ToString & ":" & timeTrack(i).Milliseconds.ToString
-            i += 1
-            ValueCounter.Text = i
+            ValueLastDuration.Text = timeTrack(counter).Minutes.ToString & ":" & timeTrack(counter).Seconds.ToString & ":" & timeTrack(counter).Milliseconds.ToString
+            counter += 1
+            ValueCounter.Text = counter
+            sCategoryVideoTimeStop(counter) = AxWindowsMediaPlayer1.Ctlcontrols.currentPositionString
+            VideoStop.Text = AxWindowsMediaPlayer1.Ctlcontrols.currentPositionString
+
         ElseIf (Timer1.Enabled.Equals(False)) Then
+
+            sCategoryVideoTimeStart(counter) = AxWindowsMediaPlayer1.Ctlcontrols.currentPositionString
+            VideoStart.Text = AxWindowsMediaPlayer1.Ctlcontrols.currentPositionString
+
             startTime = DateTime.Now()
             StartButton.Text = "Stop"
             Timer1.Start()
@@ -165,51 +175,23 @@ Public Class Form1
     Private Sub DiscardValuesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DiscardValuesToolStripMenuItem.Click
     End Sub
 
-    Private Sub RadioButton5_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton5.CheckedChanged
+    Private Sub RadioButton5_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         'None
-        categoryTrack(i) = 0
-        sCategoryTrack(i) = "None"
-        ValueLastCategorySelected.Text = RadioButton5.Text
-    End Sub
-
-    Private Sub RadioButton1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton1.CheckedChanged
-        'Lick
-        categoryTrack(i) = 1
-        sCategoryTrack(i) = "Lick"
-        ValueLastCategorySelected.Text = RadioButton1.Text
-    End Sub
-
-    Private Sub RadioButton2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton2.CheckedChanged
-        'Sniff
-        categoryTrack(i) = 2
-        sCategoryTrack(i) = "Sniff"
-        ValueLastCategorySelected.Text = RadioButton2.Text
-    End Sub
-
-    Private Sub RadioButton3_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton3.CheckedChanged
-        'Lift
-        categoryTrack(i) = 3
-        sCategoryTrack(i) = "Lift"
-        ValueLastCategorySelected.Text = RadioButton3.Text
-    End Sub
-
-    Private Sub RadioButton4_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton4.CheckedChanged
-        'Guard
-        categoryTrack(i) = 4
-        sCategoryTrack(i) = "Guard"
-        ValueLastCategorySelected.Text = RadioButton4.Text
+        categoryTrack(counter) = 0
+        sCategoryTrack(counter) = "None"
+        ValueLastCategorySelected.Text = "None"
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox1.CheckedChanged
         If (CheckBoxCheckedFlag.Equals(False)) Then
             If CheckBox1.Checked.Equals(True) Then
-                If i > 0 Then
-                    i = i - 1
-                    ValueCounter.Text = i
+                If counter > 0 Then
+                    counter = counter - 1
+                    ValueCounter.Text = counter
                     ValueGoodOrBad.Text = "Deleted"
                     CheckBoxCheckedFlag = True
                     CheckBox1.Checked = False
-                ElseIf i <= 0 Then
+                ElseIf counter <= 0 Then
                     ValueCounter.Text = "N/A"
                 End If
             End If
@@ -235,22 +217,12 @@ Public Class Form1
 
     End Sub
 
-    Private Sub Button1_Click_1(sender As System.Object, e As System.EventArgs) Handles Button1.Click
-
+    Private Sub Button5_Click(sender As System.Object, e As System.EventArgs)
+        'Flinch
+        categoryTrack(counter) = 5
+        sCategoryTrack(counter) = "Flinch"
+        ValueLastCategorySelected.Text = "Flinch"
     End Sub
-
-    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
-
-    End Sub
-
-    Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
-
-    End Sub
-
-    Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
-
-    End Sub
-
 
     Private Sub OpenToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles OpenToolStripMenuItem1.Click
         openFileDialog1.InitialDirectory = "C:\"
@@ -274,7 +246,7 @@ Public Class Form1
         ValuesSavedToFileFlag = True
         ValueLastDuration.Text = "0:0:0.0"
         ValueCounter.Text = "0"
-        i = 0
+        counter = 0
 
     End Sub
 
@@ -294,6 +266,83 @@ Public Class Form1
         If ValuesSavedToFileFlag.Equals(False) Then
             WriteToFile()
         End If
+    End Sub
+
+    Private Sub Lick_Click(sender As System.Object, e As System.EventArgs) Handles Lick.Click
+        'Lick
+        categoryTrack(counter) = 1
+        sCategoryTrack(counter) = "Lick"
+        ValueLastCategorySelected.Text = "Lick"
+
+        NumberOfTimes.Text = ""
+        MouseAction.Text = "Lick"
+
+    End Sub
+
+    Private Sub Sniff_Click(sender As System.Object, e As System.EventArgs) Handles Sniff.Click
+        'Sniff
+        categoryTrack(counter) = 2
+        sCategoryTrack(counter) = "Sniff"
+        ValueLastCategorySelected.Text = "Sniff"
+
+        NumberOfTimes.Text = ""
+        MouseAction.Text = "Sniff"
+
+    End Sub
+
+    Private Sub Lift_Click(sender As System.Object, e As System.EventArgs) Handles Lift.Click
+        'Lift
+        categoryTrack(counter) = 3
+        sCategoryTrack(counter) = "Lift"
+        ValueLastCategorySelected.Text = "Lift"
+
+        NumberOfTimes.Text = ""
+        MouseAction.Text = "Lift"
+
+    End Sub
+
+    Private Sub Guard_Click(sender As System.Object, e As System.EventArgs) Handles Guard.Click
+        'Guard
+        categoryTrack(counter) = 4
+        sCategoryTrack(counter) = "Guard"
+        ValueLastCategorySelected.Text = "Guard"
+
+        NumberOfTimes.Text = ""
+        MouseAction.Text = "Guard"
+
+    End Sub
+
+    Private Sub Flinches_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles Flinches.SelectedIndexChanged
+        'Flinch
+        categoryTrack(counter) = 5
+        sCategoryTrack(counter) = "Flinch"
+        ValueLastCategorySelected.Text = "Flinche(s)"
+
+        NumberOfTimes.Text = Flinches.SelectedIndex
+        MouseAction.Text = "Flinche(s)"
+
+    End Sub
+
+    Private Sub Wipes_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles Wipes.SelectedIndexChanged
+        'Wipe
+        categoryTrack(counter) = 6
+        sCategoryTrack(counter) = "Wipe"
+        ValueLastCategorySelected.Text = "Wipe(s)"
+
+        NumberOfTimes.Text = Wipes.SelectedIndex
+        MouseAction.Text = "Wipe(s)"
+
+    End Sub
+
+    Private Sub Scratch_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles Scratch.SelectedIndexChanged
+        'Scratch
+        categoryTrack(counter) = 7
+        sCategoryTrack(counter) = "Scratch"
+        ValueLastCategorySelected.Text = "Scratch(es)"
+
+        NumberOfTimes.Text = Scratch.SelectedIndex
+        MouseAction.Text = "Scratch(es)"
+
     End Sub
 End Class
 
