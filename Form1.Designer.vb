@@ -55,21 +55,12 @@ Partial Class Form1
         Me.LabelLastDuration = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.PL7 = New System.Windows.Forms.Label()
-        Me.PL6 = New System.Windows.Forms.Label()
-        Me.PL5 = New System.Windows.Forms.Label()
-        Me.PL4 = New System.Windows.Forms.Label()
-        Me.PL3 = New System.Windows.Forms.Label()
-        Me.PL2 = New System.Windows.Forms.Label()
-        Me.PL1 = New System.Windows.Forms.Label()
         Me.ValueOpenVideoLabel = New System.Windows.Forms.Label()
         Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -367,85 +358,6 @@ Partial Class Form1
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "StopWatch"
         '
-        'GroupBox5
-        '
-        Me.GroupBox5.Controls.Add(Me.PL7)
-        Me.GroupBox5.Controls.Add(Me.PL6)
-        Me.GroupBox5.Controls.Add(Me.PL5)
-        Me.GroupBox5.Controls.Add(Me.PL4)
-        Me.GroupBox5.Controls.Add(Me.PL3)
-        Me.GroupBox5.Controls.Add(Me.PL2)
-        Me.GroupBox5.Controls.Add(Me.PL1)
-        Me.GroupBox5.Location = New System.Drawing.Point(628, 312)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(310, 178)
-        Me.GroupBox5.TabIndex = 12
-        Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "Playlist"
-        '
-        'PL7
-        '
-        Me.PL7.AutoSize = True
-        Me.PL7.Location = New System.Drawing.Point(6, 158)
-        Me.PL7.Name = "PL7"
-        Me.PL7.Size = New System.Drawing.Size(26, 13)
-        Me.PL7.TabIndex = 6
-        Me.PL7.Text = "PL7"
-        '
-        'PL6
-        '
-        Me.PL6.AutoSize = True
-        Me.PL6.Location = New System.Drawing.Point(6, 137)
-        Me.PL6.Name = "PL6"
-        Me.PL6.Size = New System.Drawing.Size(26, 13)
-        Me.PL6.TabIndex = 5
-        Me.PL6.Text = "PL6"
-        '
-        'PL5
-        '
-        Me.PL5.AutoSize = True
-        Me.PL5.Location = New System.Drawing.Point(6, 115)
-        Me.PL5.Name = "PL5"
-        Me.PL5.Size = New System.Drawing.Size(26, 13)
-        Me.PL5.TabIndex = 4
-        Me.PL5.Text = "PL5"
-        '
-        'PL4
-        '
-        Me.PL4.AutoSize = True
-        Me.PL4.Location = New System.Drawing.Point(6, 93)
-        Me.PL4.Name = "PL4"
-        Me.PL4.Size = New System.Drawing.Size(26, 13)
-        Me.PL4.TabIndex = 3
-        Me.PL4.Text = "PL4"
-        '
-        'PL3
-        '
-        Me.PL3.AutoSize = True
-        Me.PL3.Location = New System.Drawing.Point(6, 71)
-        Me.PL3.Name = "PL3"
-        Me.PL3.Size = New System.Drawing.Size(26, 13)
-        Me.PL3.TabIndex = 2
-        Me.PL3.Text = "PL3"
-        '
-        'PL2
-        '
-        Me.PL2.AutoSize = True
-        Me.PL2.Location = New System.Drawing.Point(6, 49)
-        Me.PL2.Name = "PL2"
-        Me.PL2.Size = New System.Drawing.Size(26, 13)
-        Me.PL2.TabIndex = 1
-        Me.PL2.Text = "PL2"
-        '
-        'PL1
-        '
-        Me.PL1.AutoSize = True
-        Me.PL1.Location = New System.Drawing.Point(6, 26)
-        Me.PL1.Name = "PL1"
-        Me.PL1.Size = New System.Drawing.Size(26, 13)
-        Me.PL1.TabIndex = 0
-        Me.PL1.Text = "PL1"
-        '
         'ValueOpenVideoLabel
         '
         Me.ValueOpenVideoLabel.AutoSize = True
@@ -472,7 +384,6 @@ Partial Class Form1
         Me.ClientSize = New System.Drawing.Size(960, 535)
         Me.Controls.Add(Me.ValueOpenVideoLabel)
         Me.Controls.Add(Me.AxWindowsMediaPlayer1)
-        Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.GroupBox1)
@@ -489,8 +400,6 @@ Partial Class Form1
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -530,14 +439,6 @@ Partial Class Form1
     Friend WithEvents AboutToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents VideoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OpenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
-    Friend WithEvents PL7 As System.Windows.Forms.Label
-    Friend WithEvents PL6 As System.Windows.Forms.Label
-    Friend WithEvents PL5 As System.Windows.Forms.Label
-    Friend WithEvents PL4 As System.Windows.Forms.Label
-    Friend WithEvents PL3 As System.Windows.Forms.Label
-    Friend WithEvents PL2 As System.Windows.Forms.Label
-    Friend WithEvents PL1 As System.Windows.Forms.Label
     Friend WithEvents ValueOpenVideoLabel As System.Windows.Forms.Label
     Friend WithEvents AxWindowsMediaPlayer1 As AxWMPLib.AxWindowsMediaPlayer
 

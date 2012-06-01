@@ -83,6 +83,7 @@ Public Class Form1
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StartButton.Click
 
         ValueOpenVideoLabel.Text = ""
+        RadioButton5.Checked = True
 
         If (bVideoOpened = False) Then
             ValueOpenVideoLabel.Text = "Please Open a Video First"
@@ -224,7 +225,7 @@ Public Class Form1
                 If i > 0 Then
                     i = i - 1
                     ValueCounter.Text = i
-                    ValueGoodOrBad.Text = "Bad"
+                    ValueGoodOrBad.Text = "Deleted"
                     CheckBoxCheckedFlag = True
                     CheckBox1.Checked = False
                 ElseIf i <= 0 Then
@@ -260,13 +261,12 @@ Public Class Form1
             sCurrentPlayingVideo = openFileDialog1.FileName()
             AxWindowsMediaPlayer1.URL = sCurrentPlayingVideo
             AxWindowsMediaPlayer1.Ctlcontrols.stop()
-            'newPlaylist("video1", sCurrentPlayingVideo(0))
             ValueOpenVideoLabel.Text = "Video Loaded, Click 'Play Video'"
             bVideoOpened = True
-
             bPlayingVideoFirstTime = True
         End If
     End Sub
+
 End Class
 
 
