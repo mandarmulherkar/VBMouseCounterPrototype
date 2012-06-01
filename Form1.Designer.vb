@@ -190,7 +190,7 @@ Partial Class Form1
         '
         Me.GroupBox1.Controls.Add(Me.ValueLastSavedFile)
         Me.GroupBox1.Controls.Add(Me.LabelLastSavedFile)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 50)
+        Me.GroupBox1.Location = New System.Drawing.Point(628, 28)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(310, 89)
         Me.GroupBox1.TabIndex = 6
@@ -240,7 +240,7 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.ValueLastDuration)
         Me.GroupBox2.Controls.Add(Me.LabelLastDuration)
         Me.GroupBox2.Controls.Add(Me.GroupBox4)
-        Me.GroupBox2.Location = New System.Drawing.Point(10, 225)
+        Me.GroupBox2.Location = New System.Drawing.Point(626, 203)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(310, 103)
         Me.GroupBox2.TabIndex = 7
@@ -360,7 +360,7 @@ Partial Class Form1
         '
         Me.GroupBox3.Controls.Add(Me.StartButton)
         Me.GroupBox3.Controls.Add(Me.Label1)
-        Me.GroupBox3.Location = New System.Drawing.Point(10, 150)
+        Me.GroupBox3.Location = New System.Drawing.Point(626, 128)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(310, 64)
         Me.GroupBox3.TabIndex = 10
@@ -376,7 +376,7 @@ Partial Class Form1
         Me.GroupBox5.Controls.Add(Me.PL3)
         Me.GroupBox5.Controls.Add(Me.PL2)
         Me.GroupBox5.Controls.Add(Me.PL1)
-        Me.GroupBox5.Location = New System.Drawing.Point(12, 334)
+        Me.GroupBox5.Location = New System.Drawing.Point(628, 312)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(310, 178)
         Me.GroupBox5.TabIndex = 12
@@ -449,7 +449,7 @@ Partial Class Form1
         'ValueOpenVideoLabel
         '
         Me.ValueOpenVideoLabel.AutoSize = True
-        Me.ValueOpenVideoLabel.Location = New System.Drawing.Point(592, 50)
+        Me.ValueOpenVideoLabel.Location = New System.Drawing.Point(209, 226)
         Me.ValueOpenVideoLabel.Name = "ValueOpenVideoLabel"
         Me.ValueOpenVideoLabel.Size = New System.Drawing.Size(183, 13)
         Me.ValueOpenVideoLabel.TabIndex = 13
@@ -459,7 +459,7 @@ Partial Class Form1
         '
         Me.AxWindowsMediaPlayer1.AllowDrop = True
         Me.AxWindowsMediaPlayer1.Enabled = True
-        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(353, 12)
+        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(12, 28)
         Me.AxWindowsMediaPlayer1.Name = "AxWindowsMediaPlayer1"
         Me.AxWindowsMediaPlayer1.OcxState = CType(resources.GetObject("AxWindowsMediaPlayer1.OcxState"), System.Windows.Forms.AxHost.State)
         Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(595, 500)
@@ -469,7 +469,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(960, 524)
+        Me.ClientSize = New System.Drawing.Size(960, 535)
         Me.Controls.Add(Me.ValueOpenVideoLabel)
         Me.Controls.Add(Me.AxWindowsMediaPlayer1)
         Me.Controls.Add(Me.GroupBox5)
