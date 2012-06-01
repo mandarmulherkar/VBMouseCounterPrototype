@@ -145,13 +145,7 @@ Public Class Form1
 
     Private Sub SaveAsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveAsToolStripMenuItem.Click
 
-        If ValuesSavedToFileFlag.Equals(True) Then
-            ValueLastSavedFile.Text = saveFileDialog1.FileName() & ", No new values! "
-        End If
 
-        If ValuesSavedToFileFlag.Equals(False) Then
-            WriteToFile()
-        End If
     End Sub
 
     Public Shadows Sub FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles MyBase.FormClosed
@@ -166,22 +160,9 @@ Public Class Form1
     End Sub
 
     Private Sub ExitToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem1.Click
-
-        If ValuesSavedToFileFlag.Equals(False) Then
-            WriteToFile()
-        End If
-
-        Me.Close()
-
     End Sub
 
     Private Sub DiscardValuesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DiscardValuesToolStripMenuItem.Click
-
-        ValuesSavedToFileFlag = True
-        ValueLastDuration.Text = "0:0:0.0"
-        ValueCounter.Text = "0"
-        i = 0
-
     End Sub
 
     Private Sub RadioButton5_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton5.CheckedChanged
@@ -251,20 +232,7 @@ Public Class Form1
 
     Private Sub OpenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpenToolStripMenuItem.Click
 
-        openFileDialog1.InitialDirectory = "C:\"
-        openFileDialog1.Filter = "All files (*.*)|*.*"
-        'openFileDialog1.FilterIndex = 2
-        openFileDialog1.RestoreDirectory = False
 
-        If openFileDialog1.ShowDialog() = Windows.Forms.DialogResult.OK Then
-            'Get only the File Name
-            sCurrentPlayingVideo = openFileDialog1.FileName()
-            AxWindowsMediaPlayer1.URL = sCurrentPlayingVideo
-            AxWindowsMediaPlayer1.Ctlcontrols.stop()
-            ValueOpenVideoLabel.Text = "Video Loaded, Click 'Play Video'"
-            bVideoOpened = True
-            bPlayingVideoFirstTime = True
-        End If
     End Sub
 
     Private Sub Button1_Click_1(sender As System.Object, e As System.EventArgs) Handles Button1.Click
@@ -281,6 +249,51 @@ Public Class Form1
 
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
 
+    End Sub
+
+
+    Private Sub OpenToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles OpenToolStripMenuItem1.Click
+        openFileDialog1.InitialDirectory = "C:\"
+        openFileDialog1.Filter = "All files (*.*)|*.*"
+        'openFileDialog1.FilterIndex = 2
+        openFileDialog1.RestoreDirectory = False
+
+        If openFileDialog1.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            'Get only the File Name
+            sCurrentPlayingVideo = openFileDialog1.FileName()
+            AxWindowsMediaPlayer1.URL = sCurrentPlayingVideo
+            AxWindowsMediaPlayer1.Ctlcontrols.stop()
+            ValueOpenVideoLabel.Text = "Video Loaded, Click 'Play Video'"
+            bVideoOpened = True
+            bPlayingVideoFirstTime = True
+        End If
+    End Sub
+
+    Private Sub DiscardValuesToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles DiscardValuesToolStripMenuItem1.Click
+
+        ValuesSavedToFileFlag = True
+        ValueLastDuration.Text = "0:0:0.0"
+        ValueCounter.Text = "0"
+        i = 0
+
+    End Sub
+
+    Private Sub ExitToolStripMenuItem2_Click(sender As System.Object, e As System.EventArgs) Handles ExitToolStripMenuItem2.Click
+        If ValuesSavedToFileFlag.Equals(False) Then
+            WriteToFile()
+        End If
+
+        Me.Close()
+    End Sub
+
+    Private Sub SaveAsToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles SaveAsToolStripMenuItem1.Click
+        If ValuesSavedToFileFlag.Equals(True) Then
+            ValueLastSavedFile.Text = saveFileDialog1.FileName() & ", No new values! "
+        End If
+
+        If ValuesSavedToFileFlag.Equals(False) Then
+            WriteToFile()
+        End If
     End Sub
 End Class
 
