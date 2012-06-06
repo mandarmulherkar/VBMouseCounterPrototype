@@ -54,12 +54,10 @@ Public Class Form1
         saveFileDialog1.FileName = sDefaultFileName
 
         saveFileDialog1.ShowDialog()
-        ValueLastSavedFile.Text = saveFileDialog1.FileName()
-
+        
         If saveFileDialog1.FileName() <> "" Then
 
             'My.Computer.FileSystem.WriteAllText(saveFileDialog1.FileName(), "Iteration " & iteration & vbCrLf, True)
-            ValueLastSavedFile.Text = saveFileDialog1.FileName()
             iteration += 1
 
             headerFile = "Start Time" & "," &
@@ -98,8 +96,9 @@ Public Class Form1
             CleanUpVideo()
         End If
 
-        ' Resetting the counter back to zero, sorry for the variable name.    
+        ' Resetting the counter back to zero
         counter = 0
+        Info.Text = ""
 
     End Sub
 
@@ -167,6 +166,8 @@ Public Class Form1
         ElseIf (Timer1.Enabled.Equals(False)) Then
 
             counter += 1
+            Info.Text = ""
+
             ValueCounter.Text = counter
             CounterText.Text = counter
 
@@ -176,7 +177,6 @@ Public Class Form1
             startTime = DateTime.Now()
             StartButton.Text = "Stop Recording..."
             Timer1.Start()
-            ValueLastSavedFile.Text = saveFileDialog1.FileName()
             If ValuesSavedToFileFlag.Equals(True) Then
                 ValuesSavedToFileFlag = False
             End If
@@ -270,7 +270,7 @@ Public Class Form1
 
     Private Sub SaveAsToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs)
         If ValuesSavedToFileFlag.Equals(True) Then
-            ValueLastSavedFile.Text = saveFileDialog1.FileName() & ", No new values! "
+            Info.Text = "No new values! "
         End If
 
         If ValuesSavedToFileFlag.Equals(False) Then
@@ -383,7 +383,7 @@ Public Class Form1
 
     Private Sub ExitToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExitToolStripMenuItem.Click
         If ValuesSavedToFileFlag.Equals(True) Then
-            ValueLastSavedFile.Text = saveFileDialog1.FileName() & ", No new values! "
+            Info.Text = "No new values! "
         End If
 
         If ValuesSavedToFileFlag.Equals(False) Then

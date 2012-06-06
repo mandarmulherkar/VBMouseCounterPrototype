@@ -46,8 +46,6 @@ Partial Class Form1
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.VideoStart = New System.Windows.Forms.Label()
         Me.VideoStop = New System.Windows.Forms.Label()
-        Me.ValueLastSavedFile = New System.Windows.Forms.Label()
-        Me.LabelLastSavedFile = New System.Windows.Forms.Label()
         Me.LabelCounter = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.MouseAction = New System.Windows.Forms.Label()
@@ -79,6 +77,8 @@ Partial Class Form1
         Me.NumberOfTimesText = New System.Windows.Forms.Label()
         Me.ActionText = New System.Windows.Forms.Label()
         Me.CounterText = New System.Windows.Forms.Label()
+        Me.LabelLastSavedFile = New System.Windows.Forms.Label()
+        Me.Info = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -237,13 +237,13 @@ Partial Class Form1
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Info)
         Me.GroupBox1.Controls.Add(Me.CounterText)
         Me.GroupBox1.Controls.Add(Me.ActionText)
         Me.GroupBox1.Controls.Add(Me.NumberOfTimesText)
         Me.GroupBox1.Controls.Add(Me.DurationText)
         Me.GroupBox1.Controls.Add(Me.VideoStart)
         Me.GroupBox1.Controls.Add(Me.VideoStop)
-        Me.GroupBox1.Controls.Add(Me.ValueLastSavedFile)
         Me.GroupBox1.Controls.Add(Me.LabelLastSavedFile)
         Me.GroupBox1.Location = New System.Drawing.Point(628, 28)
         Me.GroupBox1.Name = "GroupBox1"
@@ -255,7 +255,7 @@ Partial Class Form1
         'VideoStart
         '
         Me.VideoStart.AutoSize = True
-        Me.VideoStart.Location = New System.Drawing.Point(48, 76)
+        Me.VideoStart.Location = New System.Drawing.Point(69, 61)
         Me.VideoStart.Name = "VideoStart"
         Me.VideoStart.Size = New System.Drawing.Size(16, 13)
         Me.VideoStart.TabIndex = 10
@@ -264,29 +264,11 @@ Partial Class Form1
         'VideoStop
         '
         Me.VideoStop.AutoSize = True
-        Me.VideoStop.Location = New System.Drawing.Point(87, 76)
+        Me.VideoStop.Location = New System.Drawing.Point(108, 61)
         Me.VideoStop.Name = "VideoStop"
         Me.VideoStop.Size = New System.Drawing.Size(16, 13)
         Me.VideoStop.TabIndex = 9
         Me.VideoStop.Text = "t1"
-        '
-        'ValueLastSavedFile
-        '
-        Me.ValueLastSavedFile.AutoSize = True
-        Me.ValueLastSavedFile.Location = New System.Drawing.Point(12, 47)
-        Me.ValueLastSavedFile.Name = "ValueLastSavedFile"
-        Me.ValueLastSavedFile.Size = New System.Drawing.Size(16, 13)
-        Me.ValueLastSavedFile.TabIndex = 8
-        Me.ValueLastSavedFile.Text = " --"
-        '
-        'LabelLastSavedFile
-        '
-        Me.LabelLastSavedFile.AutoSize = True
-        Me.LabelLastSavedFile.Location = New System.Drawing.Point(9, 25)
-        Me.LabelLastSavedFile.Name = "LabelLastSavedFile"
-        Me.LabelLastSavedFile.Size = New System.Drawing.Size(83, 13)
-        Me.LabelLastSavedFile.TabIndex = 6
-        Me.LabelLastSavedFile.Text = "Last Saved File:"
         '
         'LabelCounter
         '
@@ -568,7 +550,7 @@ Partial Class Form1
         'DurationText
         '
         Me.DurationText.AutoSize = True
-        Me.DurationText.Location = New System.Drawing.Point(124, 76)
+        Me.DurationText.Location = New System.Drawing.Point(145, 61)
         Me.DurationText.Name = "DurationText"
         Me.DurationText.Size = New System.Drawing.Size(49, 13)
         Me.DurationText.TabIndex = 2
@@ -577,7 +559,7 @@ Partial Class Form1
         'NumberOfTimesText
         '
         Me.NumberOfTimesText.AutoSize = True
-        Me.NumberOfTimesText.Location = New System.Drawing.Point(200, 76)
+        Me.NumberOfTimesText.Location = New System.Drawing.Point(221, 61)
         Me.NumberOfTimesText.Name = "NumberOfTimesText"
         Me.NumberOfTimesText.Size = New System.Drawing.Size(14, 13)
         Me.NumberOfTimesText.TabIndex = 11
@@ -586,7 +568,7 @@ Partial Class Form1
         'ActionText
         '
         Me.ActionText.AutoSize = True
-        Me.ActionText.Location = New System.Drawing.Point(220, 76)
+        Me.ActionText.Location = New System.Drawing.Point(241, 61)
         Me.ActionText.Name = "ActionText"
         Me.ActionText.Size = New System.Drawing.Size(36, 13)
         Me.ActionText.TabIndex = 12
@@ -595,11 +577,28 @@ Partial Class Form1
         'CounterText
         '
         Me.CounterText.AutoSize = True
-        Me.CounterText.Location = New System.Drawing.Point(12, 76)
+        Me.CounterText.Location = New System.Drawing.Point(33, 61)
         Me.CounterText.Name = "CounterText"
         Me.CounterText.Size = New System.Drawing.Size(13, 13)
         Me.CounterText.TabIndex = 13
         Me.CounterText.Text = "0"
+        '
+        'LabelLastSavedFile
+        '
+        Me.LabelLastSavedFile.AutoSize = True
+        Me.LabelLastSavedFile.Location = New System.Drawing.Point(9, 25)
+        Me.LabelLastSavedFile.Name = "LabelLastSavedFile"
+        Me.LabelLastSavedFile.Size = New System.Drawing.Size(42, 13)
+        Me.LabelLastSavedFile.TabIndex = 6
+        Me.LabelLastSavedFile.Text = "Values:"
+        '
+        'Info
+        '
+        Me.Info.AutoSize = True
+        Me.Info.Location = New System.Drawing.Point(209, 25)
+        Me.Info.Name = "Info"
+        Me.Info.Size = New System.Drawing.Size(0, 13)
+        Me.Info.TabIndex = 14
         '
         'Form1
         '
@@ -652,9 +651,7 @@ Partial Class Form1
     Friend WithEvents ValueCounter As System.Windows.Forms.Label
     Friend WithEvents ExitToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents LabelLastSavedFile As System.Windows.Forms.Label
     Friend WithEvents LabelCounter As System.Windows.Forms.Label
-    Friend WithEvents ValueLastSavedFile As System.Windows.Forms.Label
     Friend WithEvents DiscardValuesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents ValueLastDuration As System.Windows.Forms.Label
@@ -701,5 +698,7 @@ Partial Class Form1
     Friend WithEvents NumberOfTimesText As System.Windows.Forms.Label
     Friend WithEvents DurationText As System.Windows.Forms.Label
     Friend WithEvents CounterText As System.Windows.Forms.Label
+    Friend WithEvents LabelLastSavedFile As System.Windows.Forms.Label
+    Friend WithEvents Info As System.Windows.Forms.Label
 
 End Class
