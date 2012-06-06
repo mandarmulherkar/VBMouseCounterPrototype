@@ -29,7 +29,6 @@ Partial Class Form1
         Me.OpenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DiscardValuesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveAsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveAsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -76,6 +75,10 @@ Partial Class Form1
         Me.ValueOpenVideoLabel = New System.Windows.Forms.Label()
         Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.DurationText = New System.Windows.Forms.Label()
+        Me.NumberOfTimesText = New System.Windows.Forms.Label()
+        Me.ActionText = New System.Windows.Forms.Label()
+        Me.CounterText = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -120,7 +123,7 @@ Partial Class Form1
         '
         'FileToolStripMenuItem1
         '
-        Me.FileToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem1, Me.DiscardValuesToolStripMenuItem1, Me.ExitToolStripMenuItem, Me.SaveAsToolStripMenuItem1, Me.ExitToolStripMenuItem2})
+        Me.FileToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem1, Me.ExitToolStripMenuItem, Me.DiscardValuesToolStripMenuItem1, Me.ExitToolStripMenuItem2})
         Me.FileToolStripMenuItem1.Name = "FileToolStripMenuItem1"
         Me.FileToolStripMenuItem1.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem1.Text = "File"
@@ -128,31 +131,25 @@ Partial Class Form1
         'OpenToolStripMenuItem1
         '
         Me.OpenToolStripMenuItem1.Name = "OpenToolStripMenuItem1"
-        Me.OpenToolStripMenuItem1.Size = New System.Drawing.Size(150, 22)
+        Me.OpenToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.OpenToolStripMenuItem1.Text = "Open"
         '
         'DiscardValuesToolStripMenuItem1
         '
         Me.DiscardValuesToolStripMenuItem1.Name = "DiscardValuesToolStripMenuItem1"
-        Me.DiscardValuesToolStripMenuItem1.Size = New System.Drawing.Size(150, 22)
+        Me.DiscardValuesToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.DiscardValuesToolStripMenuItem1.Text = "Discard Values"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem.Text = "Save Values"
-        '
-        'SaveAsToolStripMenuItem1
-        '
-        Me.SaveAsToolStripMenuItem1.Name = "SaveAsToolStripMenuItem1"
-        Me.SaveAsToolStripMenuItem1.Size = New System.Drawing.Size(150, 22)
-        Me.SaveAsToolStripMenuItem1.Text = "Save As"
         '
         'ExitToolStripMenuItem2
         '
         Me.ExitToolStripMenuItem2.Name = "ExitToolStripMenuItem2"
-        Me.ExitToolStripMenuItem2.Size = New System.Drawing.Size(150, 22)
+        Me.ExitToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem2.Text = "Exit"
         '
         'FileToolStripMenuItem
@@ -232,7 +229,7 @@ Partial Class Form1
         'ValueCounter
         '
         Me.ValueCounter.AutoSize = True
-        Me.ValueCounter.Location = New System.Drawing.Point(676, 482)
+        Me.ValueCounter.Location = New System.Drawing.Point(676, 498)
         Me.ValueCounter.Name = "ValueCounter"
         Me.ValueCounter.Size = New System.Drawing.Size(13, 13)
         Me.ValueCounter.TabIndex = 3
@@ -240,13 +237,17 @@ Partial Class Form1
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.CounterText)
+        Me.GroupBox1.Controls.Add(Me.ActionText)
+        Me.GroupBox1.Controls.Add(Me.NumberOfTimesText)
+        Me.GroupBox1.Controls.Add(Me.DurationText)
         Me.GroupBox1.Controls.Add(Me.VideoStart)
         Me.GroupBox1.Controls.Add(Me.VideoStop)
         Me.GroupBox1.Controls.Add(Me.ValueLastSavedFile)
         Me.GroupBox1.Controls.Add(Me.LabelLastSavedFile)
         Me.GroupBox1.Location = New System.Drawing.Point(628, 28)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(320, 75)
+        Me.GroupBox1.Size = New System.Drawing.Size(320, 100)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Info"
@@ -254,26 +255,25 @@ Partial Class Form1
         'VideoStart
         '
         Me.VideoStart.AutoSize = True
-        Me.VideoStart.Location = New System.Drawing.Point(240, 25)
+        Me.VideoStart.Location = New System.Drawing.Point(48, 76)
         Me.VideoStart.Name = "VideoStart"
-        Me.VideoStart.Size = New System.Drawing.Size(56, 13)
+        Me.VideoStart.Size = New System.Drawing.Size(16, 13)
         Me.VideoStart.TabIndex = 10
-        Me.VideoStart.Text = "VideoStart"
+        Me.VideoStart.Text = "t0"
         '
         'VideoStop
         '
         Me.VideoStop.AutoSize = True
-        Me.VideoStop.Location = New System.Drawing.Point(237, 47)
+        Me.VideoStop.Location = New System.Drawing.Point(87, 76)
         Me.VideoStop.Name = "VideoStop"
-        Me.VideoStop.Size = New System.Drawing.Size(56, 13)
+        Me.VideoStop.Size = New System.Drawing.Size(16, 13)
         Me.VideoStop.TabIndex = 9
-        Me.VideoStop.Text = "VideoStop"
+        Me.VideoStop.Text = "t1"
         '
         'ValueLastSavedFile
         '
-        Me.ValueLastSavedFile.AutoEllipsis = True
         Me.ValueLastSavedFile.AutoSize = True
-        Me.ValueLastSavedFile.Location = New System.Drawing.Point(11, 48)
+        Me.ValueLastSavedFile.Location = New System.Drawing.Point(12, 47)
         Me.ValueLastSavedFile.Name = "ValueLastSavedFile"
         Me.ValueLastSavedFile.Size = New System.Drawing.Size(16, 13)
         Me.ValueLastSavedFile.TabIndex = 8
@@ -291,7 +291,7 @@ Partial Class Form1
         'LabelCounter
         '
         Me.LabelCounter.AutoSize = True
-        Me.LabelCounter.Location = New System.Drawing.Point(638, 482)
+        Me.LabelCounter.Location = New System.Drawing.Point(638, 498)
         Me.LabelCounter.Name = "LabelCounter"
         Me.LabelCounter.Size = New System.Drawing.Size(38, 13)
         Me.LabelCounter.TabIndex = 7
@@ -314,7 +314,7 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.Lift)
         Me.GroupBox2.Controls.Add(Me.Sniff)
         Me.GroupBox2.Controls.Add(Me.Lick)
-        Me.GroupBox2.Location = New System.Drawing.Point(626, 179)
+        Me.GroupBox2.Location = New System.Drawing.Point(626, 201)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(322, 268)
         Me.GroupBox2.TabIndex = 7
@@ -411,7 +411,7 @@ Partial Class Form1
         Me.PictureBox1.Image = Global.MouseCounter.My.Resources.Resources.flinch
         Me.PictureBox1.Location = New System.Drawing.Point(163, 71)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(36, 30)
+        Me.PictureBox1.Size = New System.Drawing.Size(36, 44)
         Me.PictureBox1.TabIndex = 30
         Me.PictureBox1.TabStop = False
         '
@@ -475,7 +475,7 @@ Partial Class Form1
         'ValueGoodOrBad
         '
         Me.ValueGoodOrBad.AutoSize = True
-        Me.ValueGoodOrBad.Location = New System.Drawing.Point(705, 460)
+        Me.ValueGoodOrBad.Location = New System.Drawing.Point(705, 476)
         Me.ValueGoodOrBad.Name = "ValueGoodOrBad"
         Me.ValueGoodOrBad.Size = New System.Drawing.Size(33, 13)
         Me.ValueGoodOrBad.TabIndex = 17
@@ -494,7 +494,7 @@ Partial Class Form1
         'ValueLastCategorySelected
         '
         Me.ValueLastCategorySelected.AutoSize = True
-        Me.ValueLastCategorySelected.Location = New System.Drawing.Point(791, 482)
+        Me.ValueLastCategorySelected.Location = New System.Drawing.Point(791, 498)
         Me.ValueLastCategorySelected.Name = "ValueLastCategorySelected"
         Me.ValueLastCategorySelected.Size = New System.Drawing.Size(13, 13)
         Me.ValueLastCategorySelected.TabIndex = 11
@@ -503,7 +503,7 @@ Partial Class Form1
         'ValueLastDuration
         '
         Me.ValueLastDuration.AutoSize = True
-        Me.ValueLastDuration.Location = New System.Drawing.Point(715, 482)
+        Me.ValueLastDuration.Location = New System.Drawing.Point(715, 498)
         Me.ValueLastDuration.Name = "ValueLastDuration"
         Me.ValueLastDuration.Size = New System.Drawing.Size(43, 13)
         Me.ValueLastDuration.TabIndex = 7
@@ -512,7 +512,7 @@ Partial Class Form1
         'LabelLastDuration
         '
         Me.LabelLastDuration.AutoSize = True
-        Me.LabelLastDuration.Location = New System.Drawing.Point(640, 460)
+        Me.LabelLastDuration.Location = New System.Drawing.Point(640, 476)
         Me.LabelLastDuration.Name = "LabelLastDuration"
         Me.LabelLastDuration.Size = New System.Drawing.Size(60, 13)
         Me.LabelLastDuration.TabIndex = 6
@@ -521,7 +521,7 @@ Partial Class Form1
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.CheckBox1)
-        Me.GroupBox4.Location = New System.Drawing.Point(627, 460)
+        Me.GroupBox4.Location = New System.Drawing.Point(627, 476)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(321, 47)
         Me.GroupBox4.TabIndex = 18
@@ -531,7 +531,7 @@ Partial Class Form1
         '
         Me.GroupBox3.Controls.Add(Me.StartButton)
         Me.GroupBox3.Controls.Add(Me.StopWatch)
-        Me.GroupBox3.Location = New System.Drawing.Point(626, 109)
+        Me.GroupBox3.Location = New System.Drawing.Point(626, 134)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(322, 64)
         Me.GroupBox3.TabIndex = 10
@@ -543,15 +543,15 @@ Partial Class Form1
         Me.ValueOpenVideoLabel.AutoSize = True
         Me.ValueOpenVideoLabel.Location = New System.Drawing.Point(209, 226)
         Me.ValueOpenVideoLabel.Name = "ValueOpenVideoLabel"
-        Me.ValueOpenVideoLabel.Size = New System.Drawing.Size(183, 13)
+        Me.ValueOpenVideoLabel.Size = New System.Drawing.Size(172, 13)
         Me.ValueOpenVideoLabel.TabIndex = 13
-        Me.ValueOpenVideoLabel.Text = "Open a Video to Start (Video > Open)"
+        Me.ValueOpenVideoLabel.Text = "Open a Video to Start (File > Open)"
         '
         'AxWindowsMediaPlayer1
         '
         Me.AxWindowsMediaPlayer1.AllowDrop = True
         Me.AxWindowsMediaPlayer1.Enabled = True
-        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(12, 28)
+        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(12, 24)
         Me.AxWindowsMediaPlayer1.Name = "AxWindowsMediaPlayer1"
         Me.AxWindowsMediaPlayer1.OcxState = CType(resources.GetObject("AxWindowsMediaPlayer1.OcxState"), System.Windows.Forms.AxHost.State)
         Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(595, 500)
@@ -559,11 +559,47 @@ Partial Class Form1
         '
         'PictureBox4
         '
-        Me.PictureBox4.Location = New System.Drawing.Point(0, 482)
+        Me.PictureBox4.Location = New System.Drawing.Point(12, 493)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(607, 50)
+        Me.PictureBox4.Size = New System.Drawing.Size(607, 33)
         Me.PictureBox4.TabIndex = 19
         Me.PictureBox4.TabStop = False
+        '
+        'DurationText
+        '
+        Me.DurationText.AutoSize = True
+        Me.DurationText.Location = New System.Drawing.Point(124, 76)
+        Me.DurationText.Name = "DurationText"
+        Me.DurationText.Size = New System.Drawing.Size(49, 13)
+        Me.DurationText.TabIndex = 2
+        Me.DurationText.Text = "total time"
+        '
+        'NumberOfTimesText
+        '
+        Me.NumberOfTimesText.AutoSize = True
+        Me.NumberOfTimesText.Location = New System.Drawing.Point(200, 76)
+        Me.NumberOfTimesText.Name = "NumberOfTimesText"
+        Me.NumberOfTimesText.Size = New System.Drawing.Size(14, 13)
+        Me.NumberOfTimesText.TabIndex = 11
+        Me.NumberOfTimesText.Text = "#"
+        '
+        'ActionText
+        '
+        Me.ActionText.AutoSize = True
+        Me.ActionText.Location = New System.Drawing.Point(220, 76)
+        Me.ActionText.Name = "ActionText"
+        Me.ActionText.Size = New System.Drawing.Size(36, 13)
+        Me.ActionText.TabIndex = 12
+        Me.ActionText.Text = "action"
+        '
+        'CounterText
+        '
+        Me.CounterText.AutoSize = True
+        Me.CounterText.Location = New System.Drawing.Point(12, 76)
+        Me.CounterText.Name = "CounterText"
+        Me.CounterText.Size = New System.Drawing.Size(13, 13)
+        Me.CounterText.TabIndex = 13
+        Me.CounterText.Text = "0"
         '
         'Form1
         '
@@ -648,7 +684,6 @@ Partial Class Form1
     Friend WithEvents DiscardValuesToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SaveAsToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
@@ -662,5 +697,9 @@ Partial Class Form1
     Friend WithEvents VideoStop As System.Windows.Forms.Label
     Friend WithEvents VideoStart As System.Windows.Forms.Label
     Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents ActionText As System.Windows.Forms.Label
+    Friend WithEvents NumberOfTimesText As System.Windows.Forms.Label
+    Friend WithEvents DurationText As System.Windows.Forms.Label
+    Friend WithEvents CounterText As System.Windows.Forms.Label
 
 End Class

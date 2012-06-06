@@ -9,6 +9,7 @@ Public Class Form1
 
     Dim sCategoryVideoTimeStop(0 To 255) As String
     Dim sCategoryVideoTimeStart(0 To 255) As String
+    Dim sActionNumberOfTimes(0 To 255) As String
     Dim sCurrentPlayingVideo As String '(0 To 255) As String
 
     Dim counter As Integer
@@ -35,19 +36,25 @@ Public Class Form1
     Private Sub WriteToFile()
         Dim j As Integer
         Dim writeToFile As String
+        Dim headerFile As String
         Dim sDefaultFileName As String
+
+        sDefaultFileName = DateTime.Now.Month() _
+           & "_" _
+           & DateTime.Now.Day() _
+           & "_" _
+           & DateTime.Now.Year() _
+           & "_" _
+           & DateTime.Now.Hour() _
+           & "_" _
+           & DateTime.Now.Minute()
 
         saveFileDialog1.Filter = "Excel (csv) Spreadsheet|*.csv"
         saveFileDialog1.Title = "You have unsaved values, would you like to save them?"
+        saveFileDialog1.FileName = sDefaultFileName
+
         saveFileDialog1.ShowDialog()
         ValueLastSavedFile.Text = saveFileDialog1.FileName()
-
-        sDefaultFileName = DateTime.Now.Month() _
-                   & DateTime.Now.Day() _
-                   & DateTime.Now.Year() _
-                   & "_" _
-                   & DateTime.Now.Hour() _
-                   & DateTime.Now.Minute()
 
         If saveFileDialog1.FileName() <> "" Then
 
@@ -55,9 +62,27 @@ Public Class Form1
             ValueLastSavedFile.Text = saveFileDialog1.FileName()
             iteration += 1
 
-            ' Add a more decent file open and close logic    
-            While (j < counter)
-                writeToFile = timeTrack(j).Seconds.ToString & "." & timeTrack(j).Milliseconds.ToString & "," & sCategoryTrack(j) & vbCrLf
+            headerFile = "Start Time" & "," &
+                          "End Time" & "," &
+                          "Total Time" & "," &
+                          "Number of Times" & "," &
+                          "Action" &
+                          vbCrLf
+
+            ' Add a more decent file open and close logic
+            j = 0
+            While (j <= counter)
+                If j.Equals(0) Then
+                    writeToFile = headerFile
+                Else
+                    writeToFile = sCategoryVideoTimeStart(j) & "," &
+                                  sCategoryVideoTimeStop(j) & "," &
+                                  timeTrack(j).Seconds.ToString & "." & timeTrack(j).Milliseconds.ToString & "," &
+                                  sActionNumberOfTimes(j) & "," &
+                                  sCategoryTrack(j) &
+                                  vbCrLf
+                End If
+
                 ValueLastDuration.Text = writeToFile
                 My.Computer.FileSystem.WriteAllText(saveFileDialog1.FileName(), writeToFile, True)
                 j += 1
@@ -81,14 +106,16 @@ Public Class Form1
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         span = DateTime.Now.Subtract(startTime)
         StopWatch.Text = span.Minutes.ToString & ":" & span.Seconds.ToString & "." & span.Milliseconds
+
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StartButton.Click
 
+        NumberOfTimes.Text = ""
         MouseAction.Text = "None"
         ValueOpenVideoLabel.Text = ""
 
-        If (bVideoOpened = False) Then
+        If (bVideoOpened.Equals(False)) Then
             ValueOpenVideoLabel.Text = "Please Open a Video First"
 
         ElseIf bPlayingVideoFirstTime = True Then
@@ -97,13 +124,11 @@ Public Class Form1
             bVideoPlayingFlag = True
             ValueOpenVideoLabel.Text = ""
             StartButton.Text = "Start Timer"
-            'Double play crashes the plugin
-
-            StartButton.Enabled = False
             AxWindowsMediaPlayer1.Ctlcontrols.play()
             StartButton.Enabled = True
 
         ElseIf bVideoPlayingFlag = False Then
+            'this if can go.
             If (AxWindowsMediaPlayer1.playState.Equals(WMPLib.WMPPlayState.wmppsPlaying)) Then
                 StartButton.Text = "Play Video"
             ElseIf (AxWindowsMediaPlayer1.playState.Equals(WMPLib.WMPPlayState.wmppsPaused) Or AxWindowsMediaPlayer1.playState.Equals(WMPLib.WMPPlayState.wmppsStopped)) Then
@@ -130,32 +155,32 @@ Public Class Form1
 
             Timer1.Stop()
             timeTrack(counter) = span
-            ValueLastCategorySelected.Text = "None"
-            ValueGoodOrBad.Text = "Good"
-            ValueLastDuration.Text = timeTrack(counter).Minutes.ToString & ":" & timeTrack(counter).Seconds.ToString & ":" & timeTrack(counter).Milliseconds.ToString
-            counter += 1
-            ValueCounter.Text = counter
+            DurationText.Text = StopWatch.Text
             sCategoryVideoTimeStop(counter) = AxWindowsMediaPlayer1.Ctlcontrols.currentPositionString
             VideoStop.Text = AxWindowsMediaPlayer1.Ctlcontrols.currentPositionString
 
+            NumberOfTimes.Text = ""
+            ValueLastCategorySelected.Text = "None"
+            ValueGoodOrBad.Text = "Good"
+            ValueLastDuration.Text = timeTrack(counter).Minutes.ToString & ":" & timeTrack(counter).Seconds.ToString & ":" & timeTrack(counter).Milliseconds.ToString
+
         ElseIf (Timer1.Enabled.Equals(False)) Then
+
+            counter += 1
+            ValueCounter.Text = counter
+            CounterText.Text = counter
 
             sCategoryVideoTimeStart(counter) = AxWindowsMediaPlayer1.Ctlcontrols.currentPositionString
             VideoStart.Text = AxWindowsMediaPlayer1.Ctlcontrols.currentPositionString
 
             startTime = DateTime.Now()
-            StartButton.Text = "Stop"
+            StartButton.Text = "Stop Recording..."
             Timer1.Start()
             ValueLastSavedFile.Text = saveFileDialog1.FileName()
             If ValuesSavedToFileFlag.Equals(True) Then
                 ValuesSavedToFileFlag = False
             End If
         End If
-    End Sub
-
-    Private Sub SaveAsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveAsToolStripMenuItem.Click
-
-
     End Sub
 
     Public Shadows Sub FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles MyBase.FormClosed
@@ -167,12 +192,6 @@ Public Class Form1
             WriteToFile()
         End If
 
-    End Sub
-
-    Private Sub ExitToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem1.Click
-    End Sub
-
-    Private Sub DiscardValuesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DiscardValuesToolStripMenuItem.Click
     End Sub
 
     Private Sub RadioButton5_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -212,20 +231,9 @@ Public Class Form1
 
     End Sub
 
-    Private Sub OpenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpenToolStripMenuItem.Click
-
-
-    End Sub
-
-    Private Sub Button5_Click(sender As System.Object, e As System.EventArgs)
-        'Flinch
-        categoryTrack(counter) = 5
-        sCategoryTrack(counter) = "Flinch"
-        ValueLastCategorySelected.Text = "Flinch"
-    End Sub
-
     Private Sub OpenToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles OpenToolStripMenuItem1.Click
-        openFileDialog1.InitialDirectory = "C:\"
+        CleanUpVideo()
+        'openFileDialog1.InitialDirectory = "C:\"
         openFileDialog1.Filter = "All files (*.*)|*.*"
         'openFileDialog1.FilterIndex = 2
         openFileDialog1.RestoreDirectory = False
@@ -252,18 +260,21 @@ Public Class Form1
 
     Private Sub ExitToolStripMenuItem2_Click(sender As System.Object, e As System.EventArgs) Handles ExitToolStripMenuItem2.Click
         If ValuesSavedToFileFlag.Equals(False) Then
+            CleanUpVideo()
+
             WriteToFile()
         End If
 
         Me.Close()
     End Sub
 
-    Private Sub SaveAsToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles SaveAsToolStripMenuItem1.Click
+    Private Sub SaveAsToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs)
         If ValuesSavedToFileFlag.Equals(True) Then
             ValueLastSavedFile.Text = saveFileDialog1.FileName() & ", No new values! "
         End If
 
         If ValuesSavedToFileFlag.Equals(False) Then
+            CleanUpVideo()
             WriteToFile()
         End If
     End Sub
@@ -277,6 +288,10 @@ Public Class Form1
         NumberOfTimes.Text = ""
         MouseAction.Text = "Lick"
 
+        NumberOfTimesText.Text = ""
+        ActionText.Text = "Lick"
+
+
     End Sub
 
     Private Sub Sniff_Click(sender As System.Object, e As System.EventArgs) Handles Sniff.Click
@@ -287,6 +302,9 @@ Public Class Form1
 
         NumberOfTimes.Text = ""
         MouseAction.Text = "Sniff"
+
+        NumberOfTimesText.Text = ""
+        ActionText.Text = "Sniff"
 
     End Sub
 
@@ -299,6 +317,9 @@ Public Class Form1
         NumberOfTimes.Text = ""
         MouseAction.Text = "Lift"
 
+        NumberOfTimesText.Text = ""
+        ActionText.Text = "Lift"
+
     End Sub
 
     Private Sub Guard_Click(sender As System.Object, e As System.EventArgs) Handles Guard.Click
@@ -310,16 +331,23 @@ Public Class Form1
         NumberOfTimes.Text = ""
         MouseAction.Text = "Guard"
 
+        NumberOfTimesText.Text = ""
+        ActionText.Text = "Guard"
+
     End Sub
 
     Private Sub Flinches_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles Flinches.SelectedIndexChanged
         'Flinch
         categoryTrack(counter) = 5
         sCategoryTrack(counter) = "Flinch"
-        ValueLastCategorySelected.Text = "Flinche(s)"
+        ValueLastCategorySelected.Text = "Flinch(es)"
+        sActionNumberOfTimes(counter) = Flinches.SelectedIndex
 
         NumberOfTimes.Text = Flinches.SelectedIndex
-        MouseAction.Text = "Flinche(s)"
+        MouseAction.Text = "Flinch(es)"
+
+        NumberOfTimesText.Text = Flinches.SelectedIndex
+        ActionText.Text = "Flinch(es)"
 
     End Sub
 
@@ -328,9 +356,13 @@ Public Class Form1
         categoryTrack(counter) = 6
         sCategoryTrack(counter) = "Wipe"
         ValueLastCategorySelected.Text = "Wipe(s)"
+        sActionNumberOfTimes(counter) = Wipes.SelectedIndex
 
         NumberOfTimes.Text = Wipes.SelectedIndex
         MouseAction.Text = "Wipe(s)"
+
+        NumberOfTimesText.Text = Wipes.SelectedIndex
+        ActionText.Text = "Wipe(es)"
 
     End Sub
 
@@ -339,10 +371,25 @@ Public Class Form1
         categoryTrack(counter) = 7
         sCategoryTrack(counter) = "Scratch"
         ValueLastCategorySelected.Text = "Scratch(es)"
+        sActionNumberOfTimes(counter) = Scratch.SelectedIndex
 
         NumberOfTimes.Text = Scratch.SelectedIndex
         MouseAction.Text = "Scratch(es)"
 
+        NumberOfTimesText.Text = Scratch.SelectedIndex
+        ActionText.Text = "Scratch(es)"
+
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExitToolStripMenuItem.Click
+        If ValuesSavedToFileFlag.Equals(True) Then
+            ValueLastSavedFile.Text = saveFileDialog1.FileName() & ", No new values! "
+        End If
+
+        If ValuesSavedToFileFlag.Equals(False) Then
+            CleanUpVideo()
+            WriteToFile()
+        End If
     End Sub
 End Class
 
